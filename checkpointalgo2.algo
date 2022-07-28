@@ -1,0 +1,48 @@
+ALGORITHM algorithm_name
+VAR
+tab1 : ARRAY_OF INTEGER[6];
+tab2 : ARRAY_OF INTEGER[6];
+i,j, sum1 ,sum2, sumT : INTEGER :=0;
+
+BEGIN
+Write('Print Array :')
+Write(tab1)
+Write (tab2)
+FOR i FROM 0 TO 6 DO
+IF (tab1[i] in tab2)  THEN
+tab1[i]:=0
+i:=i+1
+ELSE
+sum1 := sum1 + tab1[i]
+END_IF
+END_FOR
+
+FOR j FROM 0 TO 6 DO
+IF (tab2[j] in tab1)  THEN
+tab2[j]:=0
+j:=j+1
+ELSE
+sum2:= sam2 + tab2[j]
+END_IF
+
+END_FOR
+sumT=: sum1+sum2
+Write sumT;
+END
+
+
+ALGORITHM-hash
+VAR
+htab1 : HASH_TABLE<INTEGER,STRING>;
+htab2 : HASH_TABLE<INTEGER,STRING>;
+BEGIN
+htab1 : HASH_TABLE<INTEGER,STRING>;
+htab2 : HASH_TABLE<INTEGER,STRING>;
+
+FOR i FROM 0 to 5 DO
+Read htab
+
+
+
+HASH_TABLE<Key_type,Value_type>
+END
