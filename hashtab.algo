@@ -1,0 +1,36 @@
+ALGORITHM algorithm_name
+VAR
+set1 : ARRAY_OF INTEGER[n];
+set2: ARRAY_OF INTEGER[m];
+set: ARRAY_OF INTEGER[n+m];
+hashtab:HASH_TABLE<INTEGER,INTEGER>
+s_c,s_d:INTEGER:=0
+i,j:INTEGER
+
+BEGIN
+read(n)
+FOR i FROM 0 TO n-1  DO
+read(set1[i])
+END_FOR
+read(m)
+FOR i FROM 0 TO m-1  DO
+read(set2[i])
+END_FOR
+set =concat(set1,set2)
+FOR i FROM 0 TO set.length-1 DO
+IF (hashtab.lookup(set[i])=false) THEN
+hashtab.insert(set[i],1)
+END_IF
+ELSE  hashtab.insert(set[i],hashtab.get(set[i])+1)
+END_FOR
+FOR item in hashtab DO
+IF (hashtab.get(item)=1) THEN
+s_d=s_d+item
+END_IF
+IF (hashtab.get(item)>1) THEN
+s_c=s_c+item*hashtab.get(item)
+END_IF
+END_FOR
+write("somme communs",s_c)
+write("somme differents",s_f)
+END

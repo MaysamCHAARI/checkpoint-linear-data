@@ -1,48 +1,35 @@
-ALGORITHM algorithm_name
+ALGORITHM algo
 VAR
-tab1 : ARRAY_OF INTEGER[6];
-tab2 : ARRAY_OF INTEGER[6];
-i,j, sum1 ,sum2, sumT : INTEGER :=0;
-
+set1 : ARRAY_OF INTEGER[n];
+set2: ARRAY_OF INTEGER[m];
+set: ARRAY_OF INTEGER[n+m];
+i,j,k,l:INTEGER
+s_c,s_f:INTEGER:=0
+check:BOOLEAN
 BEGIN
-Write('Print Array :')
-Write(tab1)
-Write (tab2)
-FOR i FROM 0 TO 6 DO
-IF (tab1[i] in tab2)  THEN
-tab1[i]:=0
-i:=i+1
-ELSE
-sum1 := sum1 + tab1[i]
+read(n)
+FOR i FROM 0 TO n-1  DO
+read(set1[i])
+END_FOR
+read(m)
+FOR i FROM 0 TO m-1  DO
+read(set2[i])
+END_FOR
+set =concat(set1,set2)
+FOR k FROM 0 TO set.length-1 DO
+check:=false
+FOR l FROM 0 TO set.length-1 DO
+IF(set[k]=set[l] AND k<>l) THEN
+s_c=s_c+set[k]
+check:=true
+break;
 END_IF
 END_FOR
-
-FOR j FROM 0 TO 6 DO
-IF (tab2[j] in tab1)  THEN
-tab2[j]:=0
-j:=j+1
-ELSE
-sum2:= sam2 + tab2[j]
+IF (check=false) THEN
+s_f=s_f+set[k]
 END_IF
 
 END_FOR
-sumT=: sum1+sum2
-Write sumT;
-END
-
-
-ALGORITHM-hash
-VAR
-htab1 : HASH_TABLE<INTEGER,STRING>;
-htab2 : HASH_TABLE<INTEGER,STRING>;
-BEGIN
-htab1 : HASH_TABLE<INTEGER,STRING>;
-htab2 : HASH_TABLE<INTEGER,STRING>;
-
-FOR i FROM 0 to 5 DO
-Read htab
-
-
-
-HASH_TABLE<Key_type,Value_type>
+write("somme communs",s_c)
+write("somme differents",s_f)
 END
